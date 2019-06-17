@@ -3,8 +3,8 @@
  * 你愿意，等我回来吗？
  * 
  * @package Typecho Theme Ringo
- * @author memset0,abc1763613206
- * @version 0.0.6
+ * @author memset0, abc1763613206
+ * @version 0.0.9
  * @link https://github.com/memset0/typecho-theme-ringo
  */
 
