@@ -86,7 +86,7 @@ function themeConfig($form) {
 
     $startYear = new Typecho_Widget_Helper_Form_Element_Text('startYear', NULL, '2017', _t('网站建立年份'), _t('在这里填入您网站建立年份（显示在页面底部），<b>必须填写</b>'));
     $form->addInput($startYear->addRule('required', _t('此处必须填写')));
-    $statCode = new Typecho_Widget_Helper_Form_Element_Text('statCode', NULL, NULL, _t('站点统计代码'), _t('
+    $statCode = new Typecho_Widget_Helper_Form_Element_Textarea('statCode', NULL, NULL, _t('站点统计代码'), _t('
 
         <p class="description">在这里填入 <b>带 script 标签的</b> 站点统计代码，留空则不显示。（建议您对代码进行简单的压缩）</p>
         <hr class="line"></hr>
