@@ -22,11 +22,16 @@ a {
 }
 
 a:hover,a:active {
-	color: #444;
+	text-decoration: underline;
 }
 
 p {
 	line-height: 1.75;
+	display: block;
+	margin-block-start: 8px;
+	margin-block-end: 8px;
+	margin-inline-start: 0px;
+	margin-inline-end: 0px;
 }
 
 pre,code {
@@ -56,20 +61,6 @@ blockquote {
 	padding-left: 1.5em;
 	border-left: 4px solid #ddd;
 	color: #666;
-}
-
-table {
-	border: 1px solid #ddd;
-	width: 100%;
-}
-
-table th,table td {
-	padding: 5px 10px;
-	border: 1px solid #eee;
-}
-
-table th {
-	background: #f3f3f3;
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -121,6 +112,10 @@ textarea {
 #logo {
 	color: #333;
 	font-size: 2rem;
+}
+
+#logo:hover {
+	text-decoration: none;
 }
 
 #logo img {
@@ -190,6 +185,9 @@ textarea {
 	padding: 15px 0 20px;
 	border-bottom: 1px solid #EEE;
 }
+.post:nth-last-of-type(1) {
+	border: none;
+}
 
 .post-title {
 	margin: .83em 0;
@@ -256,7 +254,7 @@ textarea {
 
 .page-navigator {
 	list-style: none;
-	margin: 25px 0;
+	margin: 50px 0;
 	padding: 0;
 	text-align: center;
 }
@@ -445,9 +443,9 @@ img.alignright {
 }
 
 @media(max-width:767px) {
-	body {
+	/* body {
 		font-size: 81.25%;
-	}
+	} */
 
 	#nav-menu a {
 		float: none;
@@ -499,8 +497,9 @@ img.alignright {
 /* = = = = = = = = = = */
 
 /* header */
-#header {
-	transition: 0.25s;
+#header,
+#small-header {
+	/* transition: 0.25s; */
 	font-family: "Droid Serif",
 		Georgia,
 		"Times New Roman",
@@ -511,21 +510,39 @@ img.alignright {
 		"Microsoft Yahei",
 		serif;
 }
-#header:hover {
+#header:hover,
+#small-header:hover {
 	background: rgba(159, 86, 58, .06);
 	cursor: pointer !important;
 }
-#header .site-title {
+#header .site-title,
+#small-header .site-title {
 	/* letter-spacing: 2px; */
-	text-align: center;
+	/* text-align: center; */
 	font-weight: 400;
 	color: #333 !important;
 }
-#header .site-description {
+#header .site-description,
+#small-header .site-description {
 	color: #666;
 	font-style: normal;
 	font-size: 14px;
 	line-height: 20px;
+}
+#small-header {
+	text-align: center;
+}
+#small-header .page-links {
+	margin-top: 20px;
+}
+#small-header .page-links span:before {
+	content: ' · ';
+	margin-left: 10px;
+	margin-right: 10px;
+}
+#small-header .page-links span:first-child:before {
+	content: '';
+	margin: 0;
 }
 /* header */
 
@@ -595,8 +612,8 @@ img.alignright {
 	outline: none;
 }
 #comments .avatar {
-	width: 44px;
-	height: 44px;
+	width: 40px;
+	height: 40px;
 	border-radius: 20040725px;
 }
 #comments .submit:hover {
@@ -609,28 +626,26 @@ img.alignright {
 	color: #333;
 	background: #fff;
 	padding: 4px 10px;
-	border: 1px solid #eee;
 	border-radius: 20040725px;
 	transition: 0.25s;
+	box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
 }
 .tags a:hover {
 	background: #eee;
+	text-decoration: none;
+}
+.tags .none-tag {
+	
 }
 /* 标签 */ 
 
-/* 文章聚合 */
+/* index - 文章聚合 */
 .post-title {
 	margin: 0.5em 0;
 }
 .post-title > a {
 	font-weight: 400;
 	color: #444 !important;
-}
-.more {
-	font-size: 80%;
-}
-.more a { 
-	color: #999 !important;
 }
 .post-atmain {
 	margin-left: -40px;
@@ -648,19 +663,44 @@ img.alignright {
 .post-atmain:hover .post-title {
 	/* letter-spacing: 5px; */
 }
-.post-atmain:hover .more {
-	text-decoration: underline;
+.more {
+	font-size: 80%;
+	margin: auto;
+	display: block;
+	width: 120px;
+	letter-spacing: 2px;
+	border: 1px solid #0000;
 }
-/* 文章聚合 */
+.more:hover {
+	border: 1px solid #9f563a;
+	/* text-decoration: underline;	 */
+}
+.more a { 
+	color: #999 !important;
+}
+.more:hover a {
+	color: #9f563a !important;
+	text-decoration: none;	
+}
+/* index - 文章聚合 */
 
 /* 文章 */
+.post-title {
+	font-size: 20px;
+}
+.post-meta {
+	margin-top: 0px !important;
+}
 .post-title-atpage {
-	font-size: 1.6em;
-	margin-top: 1.6em;
+	font-size: 24px;
+	margin-top: 32px;
 	text-align: center;
 }
+.post-title-atpage a:hover {
+	text-decoration: none;
+}
 .post-meta-atpage {
-	margin-bottom: 4em;
+	margin-bottom: 64px;
 	text-align: center;
 }
 .post-meta * {
@@ -674,17 +714,27 @@ img.alignright {
 }
 /* 文章 */
 
-/* 框架定位 */
+/* layout - 布局 & 定位 */
+#small-header {
+	display: none;
+	margin: -40px;
+	margin-bottom: 0;
+	padding: 40px 40px 28px;
+	background: rgba(159,86,58,.03);
+	box-shadow: 0 0 24px rgba(0,0,0,0.12);
+	border-bottom: 2px solid #9f563a;
+}
 #header {
 	position: fixed;
 	text-align: right;
-	left: 0;
+	left: calc(50% - 600px);
 	top: 40px;
-	width: calc(20% - 20px);
-	padding-left: 10%;
+	width: 185px;
+	margin-left: calc(400px - 50%);
+	padding-left: calc(50% - 400px);
 	padding-top: 40px;
 	padding-bottom: 40px;
-	padding-right: 18px;
+	padding-right: 13px;
 	border-bottom: none;
 	background: rgba(159,86,58,.03);
 	border-right: 2px solid #9f563a;
@@ -692,22 +742,22 @@ img.alignright {
 #sidebar {
 	position: fixed;
 	text-align: right;
-	left: 10%;
+	left: calc(50% - 600px);
 	bottom: 40px;
-	width: calc(20% - 20px);
+	width: 180px;
 	padding-right: 20px;
 }
 #helpbar {
 	position: fixed;
-	left: 90%;
+	left: calc(50% + 600px);
 	bottom: 40px;
 	padding-left: 20px;
 }
 #body .container {
-	margin-left: 30%;
-	margin-right: 10%;
-	width: 60%;
-	max-width: 60%;
+	margin-left: calc(50% - 400px);
+	margin-right: calc(50% - 600px);
+	width: 1000px !important;
+	max-width: 1000px !important;
 	padding: 40px;
 	background: #fcfcfc;
 	box-shadow: 0 0 24px rgba(0,0,0,0.12);
@@ -717,23 +767,50 @@ img.alignright {
 	margin-right: 30px;
 }
 #footer {
-	margin-top: 240px;
+	margin-top: 0px;
 }
-@media(max-width:1200px) {
-	/* #header {
-		left: 5%;
+
+@media (max-width: 1200px) {
+	#header {
+		left: calc(50% - 400px);
+		margin-left: calc(200px - 50%);
+		padding-left: calc(50% - 200px);
 	}
 	#sidebar {
-		left: 5%;
+		left: calc(50% - 400px);
+	}
+	#helpbar {
+		left: calc(50% + 400px);
 	}
 	#body .container {
-		margin-left: 25%;
-		margin-right: 5%;
-		width: 70%;
-		max-width: 70%;
-	} */
+		margin-left: calc(50% - 200px);
+		margin-right: calc(50% - 400px);
+		width: 600px !important;
+		max-width: 600px !important;
+	}
 }
-/* 框架定位 */
+
+@media (max-width: 800px) {
+	#small-header {
+		display: block;
+	}
+	#header {
+		display: none;
+	}
+	#sidebar {
+		display: none;
+	}
+	#helpbar {
+		display: none;
+	}
+	#body .container {
+		margin-left: 0;
+		margin-right: 0;
+		width: 100% !important;
+		max-width: 100% !important;
+	}
+}
+/* layout - 布局 & 定位 */
 
 /* 搜索 */
 .site-search {
@@ -856,27 +933,38 @@ img.alignright {
 }
 /* POST NEAR */
 
-/* 选页器 */
-ol.page-navigator > li {
-	transition: 0.25s;
-}
-ol.page-navigator > li > a {
-	color: #000;
+/* page navigator - 选页器 */
+.page-navigator li {
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	padding: 0;
+	text-align: center;
+	line-height: 40px;
 	background: #fff;
+	transition: 0.25s ease;
+	border-radius: 20040725px;
+	box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
 }
-ol.page-navigator > li:hover {
+.page-navigator li a {
+	background: #0000;
+	color: #444;
+	transition: 0.25s ease;
+}
+.page-navigator li:hover {
 	background: #eee;
 }
-ol.page-navigator > li:hover > a {
-	color: #9f563a;
+.page-navigator li:hover a {
+	background: #0000;
 }
-ol.page-navigator > .current {
-	background: #eee;
+.page-navigator li.current {
+	background: #9f563a;
 }
-ol.page-navigator > .current > a {
-	color: #9f563a;
+.page-navigator li.current a {
+	background: #0000;
+	color: #fff;
 }
-/* 选页器 */
+/* page navigator - 选页器 */
 
 /* HELPBAR */
 #helpbar #back2top {
@@ -889,6 +977,33 @@ ol.page-navigator > .current > a {
 }
 /* HELPBAR */
 
+/* archive page - 归档页面 */
+.archive-model {
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+.archive-month {
+	color: #444;
+	font-size: 30px;
+}
+.archive-title {
+	margin: 0;
+	margin-bottom: 10px;
+	padding: 0;
+	font-size: 16px;
+	font-weight: normal;
+}
+.archive-title > a {
+	color: #444 !important;
+}
+/* archive page - 归档页面 */
+
+/* highlight.js - 代码高亮 */
+.hljs {
+	padding: 10px;
+	background: #fafafa !important;
+	font-family: "Fira Mono","Monaco","Menlo","Ubuntu Mono","Consolas","source-code-pro",monospace !important;
+}
 pre {
 	padding-left: 40px;
 	padding-right: 40px;
@@ -898,10 +1013,18 @@ pre {
 	margin-right: -40px;
 	max-height: none;
 }
+/* highlight.js - 代码高亮 */
+
+/* images - 插图 / 图片 */
+.post-content img {
+	display: block;
+	margin: auto;
+}
+/* images - 插图 / 图片 */
 
 .sidebar-foot {
 	color: #888;
-	font-size: 90%;
+	font-size: 80%;
 	font-family: "Droid Serif",
 		Georgia,
 		"Times New Roman",
@@ -912,3 +1035,27 @@ pre {
 		"Microsoft Yahei",
 		serif;
 }
+
+/* table - 表格 */
+table {
+	border: 1px solid #eee;
+	width: 100%;
+	border-collapse: collapse;
+	border-spacing: 0 !important;
+	/* box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08); */
+}
+table th,table td {
+	padding: 5px 10px;
+	line-height: 30px;
+	border: 1px solid #eee;
+}
+table th {
+	background: #eee;
+}
+table tr {
+	transition: 0.15s ease;
+}
+table tr:hover {
+	background: #eee;
+}
+/* table - 表格 */

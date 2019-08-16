@@ -11,16 +11,17 @@
     <!-- 关闭百度转码 -->
     <meta http-equiv="Cache-Control" content="no-transform">
     <meta http-equiv="Cache-Control" content="no-siteapp">
-
     <!-- end #optimize -->
     <meta charset="<?php $this->options->charset(); ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="renderer" content="webkit">
+
+    <!-- 自适应 -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <!-- css3-mediaqueries-js 用于尝试在上古浏览器支持自适应viewport函数 -->
     <!--[if lt IE 9]>
     　　<script src="https://cdn.jsdelivr.net/gh/livingston/css3-mediaqueries-js@master/css3-mediaqueries.min.js"></script>
     <![endif]-->
+
     <title><?php $this->archiveTitle(array(
             'category'  =>  _t('分类 %s 下的文章'),
             'search'    =>  _t('包含关键字 %s 的文章'),
@@ -30,10 +31,10 @@
 
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/necolas/normalize.css@latest/normalize.min.css">
     <link rel="stylesheet" href="<?php $this->options->themeUrl('grid.css'); ?>">
-    <link rel="stylesheet" href="<?php $this->options->themeUrl('style.css'); ?>">
+    <link rel="stylesheet" href="<?php $this->options->themeUrl('style.css'); ?>?2019081002">
     <!-- <link rel="stylesheet" href="<?php $this->options->themeUrl('ripple.css'); ?>"> -->
     <!-- <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Cinzel Decorative:700"> -->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/tomorrow.css">
     
     <!--[if lt IE 9]>
     <script src="//cdn.jsdelivr.net/gh/aFarkas/html5shiv@latest/dist/html5shiv.min.js"></script>
@@ -62,32 +63,19 @@
 </div>
 
 <header id="header" class="clearfix" onclick="window.open('<?php $this->options->siteUrl(); ?>','_self')">
-    <div class="container">
-        <div class="site-name">
-        <?php if ($this->options->logoUrl): ?>
-            <a id="logo" href="<?php $this->options->siteUrl(); ?>">
-                <img src="<?php $this->options->logoUrl() ?>" alt="<?php $this->options->title() ?>" />
-            </a>
-        <?php else: ?>
-            <a id="logo" class="site-title">
-                <?php if ($this->options->displayTitle) { $this->options->displayTitle(); }else{ $this->options->title();}?> 
-            </a>
-            <p class="description site-description">
-                <?php if ($this->options->displayCoTitle) { $this->options->displayCoTitle(); }else{ $this->options->description();}?>
-            </p>
-        <?php endif; ?>
-
-        
-        
-        <!-- <div class="col-mb-12">
-            <nav id="nav-menu" class="clearfix" role="navigation">
-                <a <?php if($this->is('index')): ?> class="current"<?php endif; ?> href="<?php $this->options->siteUrl(); ?>"><?php _e('首页'); ?></a>
-                <?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
-                <?php while($pages->next()): ?>
-                <a <?php if($this->is('page', $pages->slug)): ?> class="current"<?php endif; ?> href="<?php $pages->permalink(); ?>" title="<?php $pages->title(); ?>"><?php $pages->title(); ?></a>
-                <?php endwhile; ?>
-            </nav>
-        </div> -->
+    <div class="site-name">
+    <?php if ($this->options->logoUrl): ?>
+        <a id="logo" href="<?php $this->options->siteUrl(); ?>">
+            <img src="<?php $this->options->logoUrl() ?>" alt="<?php $this->options->title() ?>" />
+        </a>
+    <?php else: ?>
+        <a id="logo" class="site-title">
+            <?php if ($this->options->displayTitle) { $this->options->displayTitle(); }else{ $this->options->title();}?> 
+        </a>
+        <p class="description site-description">
+            <?php if ($this->options->displayCoTitle) { $this->options->displayCoTitle(); }else{ $this->options->description();}?>
+        </p>
+    <?php endif; ?>
     </div>
 </header><!-- end #header -->
 
@@ -95,4 +83,6 @@
 
 <div id="body">
     <div class="container">
+
         <!-- <div class="row"> -->
+

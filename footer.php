@@ -1,14 +1,13 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 
-		<!-- </div>end .row -->
-
 <footer id="footer" role="contentinfo">
 
 	&copy; <?php _e($this->options->startYear) ?> - <?php echo date('Y'); ?> <a href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title(); ?></a>.
 	<br />
-	<?php if ($this->options->icpNum):?> <a rel="nofollow" href="http://beian.miit.gov.cn"> <?php $this->options->icpNum(); ?> </a> <?php endif;?>
-
-	<br />
+	<?php if ($this->options->icpNum):?>
+		<a rel="nofollow" href="http://beian.miit.gov.cn"> <?php $this->options->icpNum(); ?> </a>
+		<br />
+	<?php endif;?>
 
 	<?php if ($this->options->EnableBusuanzi == 'able' ): ?>
 		<span id="busuanzi_value_site_pv">......</span> visits ·
@@ -38,6 +37,7 @@
 <?php if ($this->options->EnableBusuanzi == 'able' ): ?>
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <?php endif; ?>
+
 <!-- <style>.MathJax:focus {outline: none;}</style>
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
